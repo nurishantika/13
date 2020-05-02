@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2020 at 05:08 AM
+-- Generation Time: May 02, 2020 at 10:40 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 5.6.40
 
@@ -52,6 +52,38 @@ INSERT INTO `tb_country` (`id_country`, `Country`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_covid`
+--
+
+CREATE TABLE `tb_covid` (
+  `id_covid` int(11) NOT NULL,
+  `id_country` int(11) NOT NULL,
+  `new_cases` int(11) DEFAULT NULL,
+  `total_deaths` int(11) DEFAULT NULL,
+  `new_deaths` int(11) DEFAULT NULL,
+  `total_recovered` int(11) DEFAULT NULL,
+  `active_cases` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_covid`
+--
+
+INSERT INTO `tb_covid` (`id_covid`, `id_country`, `new_cases`, `total_deaths`, `new_deaths`, `total_recovered`, `active_cases`) VALUES
+(1, 1, 19522, 58640, 1843, 140138, 831100),
+(2, 2, 2706, 23822, 301, 123903, 84403),
+(3, 3, 2091, 27359, 382, 68941, 105205),
+(4, 4, 2638, 23660, 367, 46886, 95365),
+(5, 5, 3996, 21678, 586, NULL, 139123),
+(6, 6, 673, 6215, 89, 117400, 35816),
+(7, 7, 2392, 2992, 92, 38809, 72852),
+(8, 8, 6411, 867, 73, 8456, 84235),
+(9, 9, 1112, 5877, 71, 72439, 14268),
+(10, 10, 6, 4633, NULL, 77555, 648);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_total`
 --
 
@@ -88,6 +120,12 @@ ALTER TABLE `tb_country`
   ADD PRIMARY KEY (`id_country`);
 
 --
+-- Indexes for table `tb_covid`
+--
+ALTER TABLE `tb_covid`
+  ADD PRIMARY KEY (`id_covid`);
+
+--
 -- Indexes for table `tb_total`
 --
 ALTER TABLE `tb_total`
@@ -102,6 +140,12 @@ ALTER TABLE `tb_total`
 --
 ALTER TABLE `tb_country`
   MODIFY `id_country` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `tb_covid`
+--
+ALTER TABLE `tb_covid`
+  MODIFY `id_covid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tb_total`
